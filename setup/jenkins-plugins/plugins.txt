@@ -13,7 +13,7 @@ kubernetes-cli@1.10.2
 # Docker Pipeline
 # OWASP Dependency-CheckVersion
 # Blue OceanVersion
-# JaCoCoVersion
+# JaCoCo plugin
 # Slack NotificationVersion
 # SonarQube ScannerVersion
 # PIT MutationVersion
