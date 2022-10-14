@@ -7,3 +7,14 @@ slack@2.4.8
 sonar@2.13.1
 pitmutation@1.0-18
 kubernetes-cli@1.10.2
+
+# Manually Search & Install
+# ===============================
+# Docker Pipeline
+# OWASP Dependency-CheckVersion
+# Blue OceanVersion
+# JaCoCoVersion
+# Slack NotificationVersion
+# SonarQube ScannerVersion
+# PIT MutationVersion
+# Kubernetes CLIVersion
