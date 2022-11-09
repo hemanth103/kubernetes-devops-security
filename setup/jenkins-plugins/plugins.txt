@@ -10,11 +10,12 @@ kubernetes-cli@1.10.2
 
 # Manually Search & Install
 # ===============================
+# performance
 # Docker Pipeline
-# OWASP Dependency-CheckVersion
-# Blue OceanVersion
-# JaCoCo plugin
-# Slack NotificationVersion
-# SonarQube ScannerVersion
-# PIT MutationVersion
-# Kubernetes CLIVersion
+# OWASP Dependency-Ch i.e OWASP Dependency-Check
+# Blue Ocean
+# JaCoCo
+# Slack Notification
+# SonarQube Scanner
+# PIT Mutation
+# Kubernetes CLI
