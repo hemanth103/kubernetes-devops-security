@@ -20,3 +20,4 @@ deny[msg] {
     contains(lower(val[_]), secrets_env[_])
     msg = sprintf("Line %d: Potential secret in ENV key found: %s", [i, val])
 }
+
