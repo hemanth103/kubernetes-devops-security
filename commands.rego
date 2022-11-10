@@ -1,17 +1,22 @@
-package commands
+package main
 
-denylist = [
-	"apk",
-	"apt",
-	"pip",
-	"curl",
-	"wget",
+# Do Not store secrets in ENV variables
+secrets_env = [
+    "passwd",
+    "password",
+    "pass",
+    "secret",
+    "key",
+    "access",
+    "api_key",
+    "apikey",
+    "token",
+    "tkn"
 ]
 
-deny[msg] {
-	input[i].Cmd == "run"
-	val := input[i].Value
-	contains(val[_], denylist[_])
-
-	msg = sprintf("unallowed commands found %s", [val])
+deny[msg] {    
+    input[i].Cmd == "env"
+    val := input[i].Value
+    contains(lower(val[_]), secrets_env[_])
+    msg = sprintf("Line %d: Potential secret in ENV key found: %s", [i, val])
 }
