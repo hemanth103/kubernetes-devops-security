@@ -134,7 +134,9 @@ pipeline {
        steps {
          withKubeConfig([credentialsId: 'kubeconfig']) {
              sh 'kubectl apply -f https://raw.githubusercontent.com/aquasecurity/kube-bench/main/job.yaml'
+             sh 'sleep 15'
  			       sh "kubectl logs -l app=kube-bench"
+             sh 'sleep 5'
  			       sh 'kubectl delete job kube-bench'
          }
        }
