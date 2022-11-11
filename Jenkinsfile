@@ -129,7 +129,7 @@ pipeline {
        }
      }
 
-   stages {
+
      stage('Kube-Bench') {
        steps {
          withKubeConfig([credentialsId: 'kubeconfig']) {
@@ -139,7 +139,6 @@ pipeline {
          }
        }
      } 
-  }
 
 #    stage('Prompte to PROD?') {
 #      steps {
