@@ -1,6 +1,15 @@
 pipeline {
   agent any
 
+  environment {
+    deploymentName = "devsecops"
+    containerName = "devsecops-container"
+    serviceName = "devsecops-svc"
+    imageName = "koko103/numeric-app:${GIT_COMMIT}"
+    applicationURL = "http://hdevsecops.eastus.cloudapp.azure.com/"
+    applicationURI = "/increment/99"
+  }
+
   stages {
 
     stage('Build Artifact - Maven') {
