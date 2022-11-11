@@ -129,13 +129,25 @@ pipeline {
        }
      }
 
-    stage('Prompte to PROD?') {
-      steps {
-        timeout(time: 2, unit: 'DAYS') {
-          input 'Do you want to Approve the Deployment to Production Environment/Namespace?'
-        }
-      }
-    }
+   stages {
+     stage('Kube-Bench') {
+       steps {
+         withKubeConfig([credentialsId: 'kubeconfig']) {
+             sh 'kubectl apply -f https://raw.githubusercontent.com/aquasecurity/kube-bench/main/job.yaml'
+ 			       sh "kubectl logs -l app=kube-bench"
+ 			       sh 'kubectl delete job kube-bench'
+         }
+       }
+     } 
+  }
+
+#    stage('Prompte to PROD?') {
+#      steps {
+#        timeout(time: 2, unit: 'DAYS') {
+#          input 'Do you want to Approve the Deployment to Production Environment/Namespace?'
+#        }
+#      }
+#    }
 
   }
   
