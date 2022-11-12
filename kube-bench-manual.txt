@@ -1,0 +1,22 @@
+
+https://github.com/aquasecurity/kube-bench
+
+kubectl apply -f https://raw.githubusercontent.com/aquasecurity/kube-bench/main/job.yaml
+export xxx=$(kubectl get pods -l app="kube-bench" -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
+kubectl logs "$xxx" > "$xxx".txt
+cat $xxx.txt
+kubectl delete job kube-bench
+
+
+
+     stage('Kube-Bench') {
+       steps {
+         withKubeConfig([credentialsId: 'kubeconfig']) {
+             sh 'kubectl apply -f https://raw.githubusercontent.com/aquasecurity/kube-bench/main/job.yaml'
+             sh 'sleep 15'
+ 			       sh "kubectl logs -l app=kube-bench"
+             sh 'sleep 5'
+ 			       sh 'kubectl delete job kube-bench'
+         }
+       }
+     } 
