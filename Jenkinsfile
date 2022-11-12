@@ -144,7 +144,7 @@ pipeline {
 
    stage('Prompte to PROD?') {
       steps {
-        timeout(time: 20, unit: 'MINUTES') {
+        timeout(time: 5, unit: 'MINUTES') {
           input 'Do you want to Approve the Deployment to Production Environment/Namespace?'
         }
       }
